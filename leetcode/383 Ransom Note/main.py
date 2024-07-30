@@ -23,22 +23,35 @@
 
 import collections
 
+# def canConstruct(ransomNote, magazine):
+#     magazine_dict = collections.defaultdict(int)
+
+#     for char in magazine:
+#         magazine_dict[char] = 1 if char not in magazine_dict else magazine_dict[char] + 1
+#         print(magazine_dict)
+
+#     print('-----')
+
+#     for r_char in ransomNote:
+#         if r_char not in magazine_dict or magazine_dict[r_char] == 0:
+#             return False
+#         else:
+#             magazine_dict[r_char] -= 1
+#         print(magazine_dict)
+
+
+#     return True
+
+
 def canConstruct(ransomNote, magazine):
-    magazine_dict = collections.defaultdict(int)
-
-    for char in magazine:
-        magazine_dict[char] = 1 if char not in magazine_dict else magazine_dict[char] + 1
-        print(magazine_dict)
-
-    print('-----')
+    magazine_counter = collections.Counter(magazine)
 
     for r_char in ransomNote:
-        if r_char not in magazine_dict or magazine_dict[r_char] == 0:
+        if r_char not in magazine_counter or magazine_counter[r_char] == 0:
             return False
         else:
-            magazine_dict[r_char] -= 1
-        print(magazine_dict)
-
+            magazine_counter[r_char] -= 1
+        print(magazine_counter)
 
     return True
 

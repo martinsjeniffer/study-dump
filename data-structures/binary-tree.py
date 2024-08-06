@@ -30,6 +30,14 @@ class Node:
                 else:
                     self.right.insert(input_data)
 
+def init_tree(tree):
+    root = Node(tree[0])
+
+    for n in range(1,len(tree)):
+        root.insert(tree[n])
+
+    return root
+
 def maxDepth(root):
     if not root:
         return 0
